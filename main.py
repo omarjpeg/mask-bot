@@ -57,7 +57,6 @@ def write( gender, mask, smile):
 
 
 def look_for_faces_update_text(image):
-def look_for_faces_update_text(image):
     faces = face_detect.detectMultiScale(image,minNeighbors=5)
     for (x, y, w, h) in faces:
         face_img = image[y:y + h, x:x + w]
