@@ -77,8 +77,7 @@ def look_for_faces_update_text(image):
         reshaped2 = np.reshape(normalized2, (1, 100, 100, 3))
         reshaped3 = np.reshape(normalized3, (1, 64, 64, 3))
         reshaped = np.vstack([reshaped])
-        reshaped2 = np.vstack([reshaped2])predictions = (model
-
+        reshaped2 = np.vstack([reshaped2])
         reshaped3 = np.vstack([reshaped3])
         result = maskmodel.predict(reshaped)
         smileresult = happymodel.predict(reshaped3 < 0.5).astype("int32")[0][0]
