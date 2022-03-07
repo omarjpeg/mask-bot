@@ -19,7 +19,7 @@ gender_model = load_model(dir_path + '/gender_classify_middle_hiar_man.h5')
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    uploaded_file = st.file_uploader("Choose a file", type=['jpg', 'png'])
+    uploaded_file = st.file_uploader("Choose a file", type=['jpg','jpeg', 'png'])
 with col2:
     radio = st.radio('Mode', ['Upload', 'Live(Available when you run it on your own machine*)'])
 
