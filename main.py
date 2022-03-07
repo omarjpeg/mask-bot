@@ -1,6 +1,6 @@
 import subprocess
 
-def uninstall(name):
+def uninstall():
     subprocess.call(['pip', 'uninstall', 'keras','--yes'])
 uninstall()
 
