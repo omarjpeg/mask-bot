@@ -81,8 +81,8 @@ def look_for_faces_update_text(image):
 
         reshaped3 = np.vstack([reshaped3])
         result = maskmodel.predict(reshaped)
-        smileresult = happymodel.predict(reshaped3) > 0.5).astype("int32")
-        gender_prediction = gender_model.predict(reshaped2) > 0.5).astype("int32")
+        smileresult = happymodel.predict(reshaped3 < 0.5).astype("int32")[0][0]
+        gender_prediction = gender_model.predict(reshaped2 < 0.5).astype("int32")
         gender_prediction = gender_prediction[0][0]
         if result[0][0] > result[0][1]:
             percent = round(result[0][0] * 100, 2)
