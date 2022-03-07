@@ -50,7 +50,7 @@ def write(gender, mask, smile):
     b3.header(" \n")
     b4.header(" \n")
     b5.header(" \n")
-    b6.text('\n\n\n\n\nI work best in well-lit environments!\n*For the live feed mode, check github\nfor an example as '
+    b6.text('\n\n\n\n\nI work best in well-lit environments\nand I never save your images!\n*For the live feed mode, check github\nfor an example as '
             'well as how to run it!=)\nThank you for using this bot!\n')
     b7.write('-[Omar](https://www.linkedin.com/in/omar-png/)')
 
