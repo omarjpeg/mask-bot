@@ -1,9 +1,3 @@
-# import subprocess
-
-# def uninstall():
-#     subprocess.call(['pip', 'uninstall', 'keras','--yes'])
-# uninstall()
-
 import numpy as np
 import streamlit as st
 import os
@@ -27,7 +21,7 @@ col1, col2 = st.columns([1, 1])
 with col1:
     uploaded_file = st.file_uploader("Choose a file", type=['jpg', 'png'])
 with col2:
-    radio = st.radio('Mode', ['Upload', 'Live'])
+    radio = st.radio('Mode', ['Upload', 'Live(Available when you run it on your own machine*)'])
 
 
 def reduce_max_width():
@@ -63,31 +57,31 @@ def write( gender, mask, smile):
 
 
 def look_for_faces_update_text(image):
+def look_for_faces_update_text(image):
     faces = face_detect.detectMultiScale(image,minNeighbors=5)
     for (x, y, w, h) in faces:
         face_img = image[y:y + h, x:x + w]
         resized = cv2.resize(face_img, (224, 224))
-        face_img2 =  cv2.cvtColor(face_img, cv2.COLOR_BGR2GRAY)
-        resized2 = cv2.resize(face_img, (100, 100))
+        resized2 = cv2.resize(face_img, (96, 96))
         resized3 = cv2.resize(face_img, (64, 64))
         normalized = resized / 255.0
         normalized2 = resized2 / 255.0
         normalized3 = resized3 / 255.0
         reshaped = np.reshape(normalized, (1, 224, 224, 3))
-        reshaped2 = np.reshape(normalized2, (1, 100, 100, 3))
+        reshaped2 = np.reshape(normalized2, (1, 96, 96, 3))
         reshaped3 = np.reshape(normalized3, (1, 64, 64, 3))
         reshaped = np.vstack([reshaped])
         reshaped2 = np.vstack([reshaped2])
         reshaped3 = np.vstack([reshaped3])
         result = maskmodel.predict(reshaped)
-        smileresult = happymodel.predict(reshaped3 < 0.5).astype("int32")[0][0]
-        gender_prediction = gender_model.predict(reshaped2 < 0.5).astype("int32")
+        smileresult = (happymodel.predict(reshaped3 )> 0.5).astype("int32")[0][0]
+        gender_prediction = (gender_model.predict(reshaped2) > 0.5).astype("int32")
+
         gender_prediction = gender_prediction[0][0]
         if result[0][0] > result[0][1]:
             percent = round(result[0][0] * 100, 2)
         else:
             percent = round(result[0][1] * 100, 2)
-
         color_dict = {0: (0, 0, 255), 1: (0, 255, 0)}
         label = np.argmax(result, axis=1)[0]
         cv2.rectangle(image, (x, y), (x + w, y + h), color_dict[label], 2)
