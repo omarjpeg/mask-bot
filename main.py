@@ -6,8 +6,9 @@ from tensorflow.keras.models import load_model
 
 import subprocess
 
-def install(name):
+def uninstall(name):
     subprocess.call(['pip', 'uninstall', 'keras','--yes'])
+uninstall()
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 st.markdown("<h1 style='text-align: center; color: black;'>🤖Cheerful Health Inspector Bot🤖</h1>",
