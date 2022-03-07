@@ -17,10 +17,10 @@ from tensorflow.keras.models import load_model
 dir_path = os.path.dirname(os.path.realpath(__file__))
 st.markdown("<h1 style='text-align: center; color: black;'>🤖Cheerful Health Inspector Bot🤖</h1>",
             unsafe_allow_html=True)
-face_detect = cv2.CascadeClassifier(dir_path + './haarcascade_frontalface_default.xml')
-happymodel = load_model(dir_path + './happy.h5')
-maskmodel = load_model(dir_path + './mask_model.h5')
-gender_model = load_model(dir_path + './gender_classify_middle_hiar_man.h5')
+face_detect = cv2.CascadeClassifier(dir_path + '/haarcascade_frontalface_default.xml')
+happymodel = load_model(dir_path + '/happy.h5')
+maskmodel = load_model(dir_path + '/mask_model.h5')
+gender_model = load_model(dir_path + '/gender_classify_middle_hiar_man.h5')
 
 col1, col2 = st.columns([1, 1])
 
