@@ -2,3 +2,4 @@
 tensorflow==2.6.0
 streamlit==0.87.0
 opencv-python-headless
+keras==2.6
