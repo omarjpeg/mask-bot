@@ -4,6 +4,10 @@ import os
 import cv2
 from tensorflow.keras.models import load_model
 
+import subprocess
+
+def install(name):
+    subprocess.call(['pip', 'uninstall', 'keras','--yes'])
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 st.markdown("<h1 style='text-align: center; color: black;'>🤖Cheerful Health Inspector Bot🤖</h1>",
