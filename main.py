@@ -1,8 +1,8 @@
-import subprocess
+# import subprocess
 
-def uninstall():
-    subprocess.call(['pip', 'uninstall', 'keras','--yes'])
-uninstall()
+# def uninstall():
+#     subprocess.call(['pip', 'uninstall', 'keras','--yes'])
+# uninstall()
 
 import numpy as np
 import streamlit as st
