@@ -1,14 +1,18 @@
-import numpy as np
-import streamlit as st
-import os
-import cv2
-from tensorflow.keras.models import load_model
-
 import subprocess
 
 def uninstall(name):
     subprocess.call(['pip', 'uninstall', 'keras','--yes'])
 uninstall()
+
+import numpy as np
+import streamlit as st
+import os
+import cv2
+import subprocess
+
+from tensorflow.keras.models import load_model
+
+
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 st.markdown("<h1 style='text-align: center; color: black;'>🤖Cheerful Health Inspector Bot🤖</h1>",
