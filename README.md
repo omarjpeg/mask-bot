@@ -6,7 +6,8 @@ Try it out for yourself!
 https://share.streamlit.io/omarjpeg/mask-bot/main/main.py
 
 If you want to use the webcam:
-Navigate using the cmd to the folder where the files are and use:
+
+Navigate using the command line to the folder where the files you downloaded from this repo are and use:
 
 Use the package manager pip to install requirements.
 ```
